@@ -73,10 +73,10 @@ If `remote` is true, gets the references directly from the remote.
 
 `.getReferences(remote)`, but only tags are returned.
 
-### glitter.getVersions(strict, remote).then( [versions] => )
+### glitter.getVersions(loose, remote).then( [versions] => )
 
 `.getTags(remote)`, except only valid semantic versions are returned.
-Optionally, you may return only `strict` semantic versions.
+Optionally, you may return only `loose` semantic versions.
 
 [npm-image]: https://img.shields.io/npm/v/glitter.svg?style=flat
 [npm-url]: https://npmjs.org/package/glitter
