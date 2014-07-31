@@ -12,7 +12,9 @@
   "repository": "repo-utils/glitter",
   "dependencies": {
     "mz": "1",
+    "debug": "*",
     "bluebird": "2",
+    "native-or-bluebird": "1",
     "semver": "3"
   },
   "devDependencies": {
