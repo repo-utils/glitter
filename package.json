@@ -1,0 +1,35 @@
+{
+  "name": "glitter",
+  "description": "git abstraction",
+  "version": "0.0.0",
+  "author": {
+    "name": "Jonathan Ong",
+    "email": "me@jongleberry.com",
+    "url": "http://jongleberry.com",
+    "twitter": "https://twitter.com/jongleberry"
+  },
+  "license": "MIT",
+  "repository": "repo-utils/glitter",
+  "dependencies": {
+    "mz": "1",
+    "bluebird": "2",
+    "semver": "3"
+  },
+  "devDependencies": {
+    "rimraf": "2",
+    "mocha": "1",
+    "istanbul": "0"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec --timeout 30s --bail",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --timeout 30s",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter dot --timeout 30s"
+  },
+  "keywords": [
+    "git",
+    "local",
+    "cache"
+  ],
+  "files": ["lib"],
+  "main": "lib"
+}
