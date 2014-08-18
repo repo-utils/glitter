@@ -1,7 +1,7 @@
 {
   "name": "glitter",
   "description": "git abstraction",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": {
     "name": "Jonathan Ong",
     "email": "me@jongleberry.com",
