@@ -2,8 +2,11 @@
 # glitter
 
 [![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
+[![Build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
+[![Dependency Status][david-image]][david-url]
+[![License][license-image]][license-url]
+[![Downloads][downloads-image]][downloads-url]
 [![Gittip][gittip-image]][gittip-url]
 
 A utility to interact with remote repositories seamlessly.
@@ -78,11 +81,19 @@ If `remote` is true, gets the references directly from the remote.
 `.getTags(remote)`, except only valid semantic versions are returned.
 Optionally, you may return only `loose` semantic versions.
 
-[npm-image]: https://img.shields.io/npm/v/glitter.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/glitter.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/glitter
-[travis-image]: https://img.shields.io/travis/repo-utils/glitter.svg?style=flat
+[github-tag]: http://img.shields.io/github/tag/repo-utils/glitter.svg?style=flat-square
+[github-url]: https://github.com/repo-utils/glitter/tags
+[travis-image]: https://img.shields.io/travis/repo-utils/glitter.svg?style=flat-square
 [travis-url]: https://travis-ci.org/repo-utils/glitter
-[coveralls-image]: https://img.shields.io/coveralls/repo-utils/glitter.svg?style=flat
+[coveralls-image]: https://img.shields.io/coveralls/repo-utils/glitter.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/repo-utils/glitter?branch=master
-[gittip-image]: https://img.shields.io/gittip/jonathanong.svg?style=flat
+[david-image]: http://img.shields.io/david/repo-utils/glitter.svg?style=flat-square
+[david-url]: https://david-dm.org/repo-utils/glitter
+[license-image]: http://img.shields.io/npm/l/glitter.svg?style=flat-square
+[license-url]: LICENSE
+[downloads-image]: http://img.shields.io/npm/dm/glitter.svg?style=flat-square
+[downloads-url]: https://npmjs.org/package/glitter
+[gittip-image]: https://img.shields.io/gittip/jonathanong.svg?style=flat-square
 [gittip-url]: https://www.gittip.com/jonathanong/
