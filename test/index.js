@@ -2,6 +2,7 @@
 var fs = require('fs')
 var path = require('path')
 var assert = require('assert')
+var Promise = require('native-or-bluebird')
 
 var Glitter = require('..')
 var out = path.join(__dirname, '..', 'cache2')
@@ -27,7 +28,7 @@ describe('Glitter', function () {
 
           return glitter.install().then(function () {
             return new Promise(function (resolve) {
-              setImmediate(function () {
+              process.nextTick(function () {
                 assert(!glitter._installPromise)
                 resolve()
               })
