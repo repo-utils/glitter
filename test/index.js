@@ -6,8 +6,7 @@ var assert = require('assert')
 var Glitter = require('..')
 var out = path.join(__dirname, '..', 'cache2')
 
-require('rimraf').sync(Glitter.folder)
-require('rimraf').sync(out)
+Glitter.clean()
 
 describe('Glitter', function () {
   describe('GitHub', function () {
