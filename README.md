@@ -76,10 +76,16 @@ If `remote` is true, gets the references directly from the remote.
 
 `.getReferences(remote)`, but only tags are returned.
 
-### glitter.getVersions(loose, remote).then( [versions] => )
+### glitter.getVersions(remote).then( [versions] => )
 
 `.getTags(remote)`, except only valid semantic versions are returned.
-Optionally, you may return only `loose` semantic versions.
+It returns an array of `[<tag>, <sha>]`.
+
+### glitter.getMaxSatisfying(range, remote).then( version => )
+
+Same like `.getVersions()`, but you pass a semver range,
+and it will return the max satisfying range.
+It returns a single `[<tag>, <sha>]` unless `null`.
 
 [npm-image]: https://img.shields.io/npm/v/glitter.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/glitter
