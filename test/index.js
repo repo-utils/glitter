@@ -200,3 +200,23 @@ describe('Glitter', function () {
     })
   })
 })
+
+describe('Cases', function () {
+  describe('component/each', function () {
+    var glitter = Glitter(Glitter.remotes.github, 'component', 'each')
+
+    it('should install', function () {
+      return glitter.install().then(function () {
+        return glitter.isInstalled()
+      }).then(function (val) {
+        assert(val)
+      })
+    })
+
+    it('should get versions', function () {
+      return glitter.getVersions().then(function (versions) {
+        assert(~versions.indexOf('0.2.2'))
+      })
+    })
+  })
+})
