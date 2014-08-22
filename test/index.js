@@ -231,6 +231,18 @@ describe('Glitter', function () {
   })
 })
 
+describe('Bitbucket', function () {
+  it('.getVersions()', function () {
+    return Glitter('bb', 'jongleberry', 'component-test-glob')
+      .getVersions(true)
+      .then(function (tags) {
+        assert(tags)
+        assert.equal(tags.length, 1)
+        assert.equal(tags[0][0], '0.0.0')
+      })
+  })
+})
+
 describe('Cases', function () {
   describe('component/each', function () {
     var glitter = Glitter(Glitter.remotes.github, 'component', 'each')
