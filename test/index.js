@@ -173,7 +173,8 @@ describe('Glitter', function () {
 
       describe('.getVersions', function () {
         it('(remote=false)', function () {
-          return glitter.getVersions(false).then(function (versions) {
+          return glitter.getVersions(false).then(function (tags) {
+            var versions = tags.map(toVersion)
             assert(~versions.indexOf('1.0.0'))
             assert(~versions.indexOf('0.1.3'))
             assert(versions.indexOf('1.0.0') < versions.indexOf('0.1.3'))
@@ -181,10 +182,19 @@ describe('Glitter', function () {
         })
 
         it('(remote=true)', function () {
-          return glitter.getVersions(true).then(function (versions) {
+          return glitter.getVersions(true).then(function (tags) {
+            var versions = tags.map(toVersion)
             assert(~versions.indexOf('1.0.0'))
             assert(~versions.indexOf('0.1.3'))
             assert(versions.indexOf('1.0.0') < versions.indexOf('0.1.3'))
+          })
+        })
+
+        it('should not support loose versions', function () {
+          var glitter = Glitter('gh', 'chjj', 'marked')
+          return glitter.getVersions(true).then(function (tags) {
+            var versions = tags.map(toVersion)
+            assert(!~versions.indexOf('v0.2.5c'))
           })
         })
       })
@@ -214,9 +224,14 @@ describe('Cases', function () {
     })
 
     it('should get versions', function () {
-      return glitter.getVersions().then(function (versions) {
+      return glitter.getVersions().then(function (tags) {
+        var versions = tags.map(toVersion)
         assert(~versions.indexOf('0.2.2'))
       })
     })
   })
 })
+
+function toVersion(x) {
+  return x[0]
+}
