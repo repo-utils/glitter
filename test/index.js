@@ -199,6 +199,26 @@ describe('Glitter', function () {
         })
       })
 
+      describe('.getMaxSatisfying', function () {
+        it('(range, remote=false)', function () {
+          return glitter.getMaxSatisfying('~0.1.3', false).then(function (version) {
+            assert(version)
+            assert(version[0] === '0.1.3')
+            assert(version[1] === 'd8f88b84e0269dd779073d45a41f9e58c000c15f')
+          })
+        })
+
+        it('(range, remote=true)', function () {
+          return Glitter('gh', 'pillarjs', 'path-match')
+            .getMaxSatisfying('~1.0.0', true)
+            .then(function (version) {
+              assert(version)
+              assert(version[0] === '1.0.0')
+              assert(version[1] === 'fb86d51f293e8baa553a46e94a37bb0aa7584304')
+            })
+        })
+      })
+
       describe('.copy(reference, folder)', function () {
         it('should copy', function () {
           var folder = path.join(out, 'routington')
