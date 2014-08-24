@@ -35,6 +35,14 @@ describe('Glitter', function () {
             })
           })
         })
+
+        it('should 404 if the repo does not exist', function () {
+          return Glitter('gh', 'jlahsdlfjkalskjdfkla', 'asjkldhfasldhf').install().then(function () {
+            throw new Error('lkajsldkfjasdf')
+          }).catch(function (err) {
+            assert.equal(err.status, 404)
+          })
+        })
       })
 
       describe('.isInstalled()', function () {
