@@ -12,8 +12,38 @@
 A utility to interact with remote repositories seamlessly.
 Supports fetching remotes, getting references/tags/branches
 from either the remote or the local copy, and copying files.
-The purpose of this is as a basis for [normalize-proxy](https://github.com/normalize/proxy.js)
-and perhaps could be used for any package management utility.
+
+## Adding Custom Remotes
+
+By default, this library supports `GitHub` and `BitBucket` git remotes.
+Adding remotes is pretty trivial since all it really needs is a URL.
+
+First you need to create a custom remote object.
+View [lib/remotes/github.js](lib/remotes/github.js) for an example.
+All it needs is a `.name` and a `.url( user, repo => URL)` function.
+
+Then you need to set this remote to `glitter.remotes[name]=`.
+See [lib/remotes/index.js](lib/remotes/index.js).
+For example:
+
+```js
+var local = {
+  name: 'local',
+  url: function (user, repo) {
+    // ignores the `user` field,
+    // though you could optionally just use the `user` field
+    // as the repo.
+    return 'https://localhost:8080/' + repo;
+  }
+};
+
+Glitter.remotes.local =
+Glitter.remotes.someAlias = local;
+
+var glitter = Glitter('local', null, 'module');
+```
+
+And you're set!
 
 ## API
 
