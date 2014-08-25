@@ -17,6 +17,7 @@
     "rimraf": "2",
     "semver": "3",
     "bluebird": "2",
+    "mkdirp-then": "1",
     "native-or-bluebird": "1"
   },
   "devDependencies": {
