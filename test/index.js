@@ -40,6 +40,7 @@ describe('Glitter', function () {
           return Glitter('gh', 'jlahsdlfjkalskjdfkla', 'asjkldhfasldhf').install().then(function () {
             throw new Error('lkajsldkfjasdf')
           }).catch(function (err) {
+            console.error(err)
             assert.equal(err.status, 404)
           })
         })
