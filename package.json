@@ -16,11 +16,10 @@
     "mkdirp": "0",
     "rimraf": "2",
     "semver": "3",
-    "bluebird": "2",
-    "mkdirp-then": "1",
-    "native-or-bluebird": "1"
+    "bluebird": "2"
   },
   "devDependencies": {
+    "native-or-bluebird": "1",
     "mocha": "1",
     "istanbul": "0"
   },

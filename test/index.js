@@ -36,25 +36,31 @@ describe('Glitter', function () {
           })
         })
 
+        it('should support concurrent installs', function () {
+          var glitter1 = Glitter('gh', 'jonathanong', 'ee-first')
+          var glitter2 = Glitter('gh', 'jonathanong', 'ee-first')
+          var glitter3 = Glitter('gh', 'jonathanong', 'ee-first')
+          var glitter4 = Glitter('gh', 'jonathanong', 'ee-first')
+
+          return Promise.all([
+            glitter1.install(),
+            glitter2.install(),
+            new Promise(function (resolve) {
+              setTimeout(function () {
+                resolve(glitter3.install())
+              }, 10)
+            }),
+            glitter1.install().then(function () {
+              return glitter4.install()
+            }),
+          ])
+        })
+
         it('should 404 if the repo does not exist', function () {
           return Glitter('gh', 'jlahsdlfjkalskjdfkla', 'asjkldhfasldhf').install().then(function () {
             throw new Error('lkajsldkfjasdf')
           }).catch(function (err) {
             assert(err.status === 403 || err.status === 404)
-          })
-        })
-      })
-
-      describe('.isInstalled()', function () {
-        it('should return true if installed', function () {
-          return glitter.isInstalled().then(function (yes) {
-            assert(yes)
-          })
-        })
-
-        it('should return false if not installed', function () {
-          return Glitter('gh', 'klajsdlkfjasdf', 'alkjalksdjf').isInstalled(function (yes) {
-            assert(!yes)
           })
         })
       })
@@ -256,11 +262,7 @@ describe('Cases', function () {
     var glitter = Glitter(Glitter.remotes.github, 'component', 'each')
 
     it('should install', function () {
-      return glitter.install().then(function () {
-        return glitter.isInstalled()
-      }).then(function (val) {
-        assert(val)
-      })
+      return glitter.install()
     })
 
     it('should get versions', function () {
