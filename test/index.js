@@ -272,6 +272,33 @@ describe('Cases', function () {
       })
     })
   })
+
+  describe('necolas/normalize.css', function () {
+    var glitter = Glitter('gh', 'necolas', 'normalize.css')
+
+    it('should install', function () {
+      return glitter.install()
+    })
+
+    it('should resolve 3.0.1', function () {
+      return glitter.getMaxSatisfying('> 3.0.0 < 3.0.2').then(function (version) {
+        assert.equal(version[0], '3.0.1')
+        assert.equal(version[1], 'e3c71c911b0c0ebc0ee14d2421543ce1476fd761')
+      })
+    })
+
+    it('should show the tag sha', function () {
+      return glitter.show('e3c71c911b0c0ebc0ee14d2421543ce1476fd761').then(function (sha) {
+        assert.equal(sha, 'e3c71c911b0c0ebc0ee14d2421543ce1476fd761')
+      })
+    })
+
+    it('should show the short tag sha', function () {
+      return glitter.show('e3c71c').then(function (sha) {
+        assert.equal(sha, 'e3c71c911b0c0ebc0ee14d2421543ce1476fd761')
+      })
+    })
+  })
 })
 
 function toVersion(x) {
