@@ -15,7 +15,7 @@
     "debug": "*",
     "mkdirp": "0",
     "rimraf": "2",
-    "semver": "3",
+    "semver": "4",
     "bluebird": "2"
   },
   "devDependencies": {
