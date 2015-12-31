@@ -11,16 +11,16 @@
   "license": "MIT",
   "repository": "repo-utils/glitter",
   "dependencies": {
-    "mz": "1",
+    "mz": "2.1.0",
     "debug": "*",
     "mkdirp": "0",
     "rimraf": "2",
-    "semver": "4",
-    "bluebird": "2"
+    "semver": "5.1.0",
+    "bluebird": "3.1.1"
   },
   "devDependencies": {
     "native-or-bluebird": "1",
-    "mocha": "1",
+    "mocha": "2.3.4",
     "istanbul": "0"
   },
   "scripts": {
