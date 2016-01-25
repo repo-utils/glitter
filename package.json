@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": "repo-utils/glitter",
   "dependencies": {
-    "mz": "1",
+    "mz": "2.2.0",
     "debug": "*",
     "mkdirp": "0",
     "rimraf": "2",
